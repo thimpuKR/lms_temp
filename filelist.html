@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>lms_filelist</title>
+        <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet" />
+        <style>
+            body {
+                font-family: ‘SUIT’, sans-serif;
+                font-size: 14px;
+                color: #252525;
+                margin: 0;
+                padding: 0;
+            }
+            .wrap {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 24px;
+                font-weight: 600;
+                margin: 0;
+            }
+            .tab ul {
+                list-style: none;
+                display: flex;
+                margin: 40px auto 0;
+                padding: 0;
+            }
+            .tab ul li a {
+                color: #252525;
+                text-decoration: none;
+                padding: 16px 40px;
+                border: 1px solid #dbdbdb;
+                border-left: none;
+                border-bottom: none;
+            }
+            .tab ul li:first-child a {
+                border-left: 1px solid #dbdbdb;
+            }
+            .tab ul li a.active {
+                font-weight: 700;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                border: 1px solid #dbdbdb;
+            }
+            tr {
+                height: 42px;
+            }
+            tr:hover {
+                background-color: #edf4fe;
+            }
+            th {
+                font-weight: 600;
+                padding: 12px;
+                background-color: #ececec;
+                border: 1px solid #dbdbdb;
+            }
+            td {
+                padding: 0 12px;
+                border: 1px solid #dbdbdb;
+            }
+            .number {
+                text-align: center;
+            }
+            .status {
+                text-align: center;
+            }
+            .status span {
+                display: inline-block;
+                padding: 4px 10px;
+                border-radius: 4px;
+            }
+            .complete {
+                color: white;
+                background-color: #2161c2;
+            }
+            .ongoing {
+                color: white;
+                background-color: #1eaa64;
+            }
+            .waiting {
+                background-color: rgb(212, 212, 212);
+            }
+            tr.skip {
+                color: #aaa;
+                font-style: italic;
+                background-color: #f5f5f5;
+            }
+            tr.del {
+                color: #aaa;
+                font-style: italic;
+                background-color: #f5f5f5;
+                a {
+                    color: #aaa;
+                    text-decoration: none;
+                    cursor: default;
+                }
+            }
+            .tab-index {
+                border-bottom: 1px solid #dbdbdb;
+            }
+            .tab-index ul {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                padding: 0;
+                margin: 40px auto 0;
+            }
+            .tab-index ul li {
+                display: block;
+                position: relative;
+                color: #252525;
+                font-size: 15px;
+                text-align: center;
+                padding: 12px 24px;
+                margin-right: 8px;
+                background-color: #f4f4f4;
+                border: 1px solid #dbdbdb;
+                border-bottom: none;
+                cursor: pointer;
+                border-radius: 3px 3px 0 0;
+            }
+
+            .tab-index ul li:hover,
+            .tab-index ul li.active {
+                color: #252525;
+                font-weight: 600;
+                background-color: transparent;
+                border-bottom: 1px solid white;
+                margin-bottom: -1px;
+            }
+
+            .tab-index ul li:hover::after,
+            .tab-index ul li.active::after {
+                content: "";
+                display: block;
+                position: absolute;
+                left: 0;
+                bottom: -1px;
+                width: 100%;
+                height: 1px;
+                background-color: transparent;
+            }
+            .tab-content {
+                display: none;
+                padding-top: 30px;
+            }
+
+            .tab-content.active {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <h1>filelist</h1>
+            <!-- <div class="tab tab-index gap-24">
+                <ul>
+                    <li class="tab-item active" data-tab="tab1">수강생 웹</li>
+                    <li class="tab-item" data-tab="tab2">강사 웹</li>
+                    <li class="tab-item" data-tab="tab3">관리자</li>
+                </ul>
+            </div> -->
+            <div class="tab-content active" id="tab1">
+                <table>
+                    <colgroup>
+                        <col width="4%" />
+                        <col width="15%" />
+                        <col width="15%" />
+                        <col width="15%" />
+                        <col width="15%" />
+                        <col width="16%" />
+                        <col width="15%" />
+                        <col width="5%" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>번호</th>
+                            <th>1depth</th>
+                            <th>2depth</th>
+                            <th>3depth</th>
+                            <th>4depth</th>
+                            <th>경로</th>
+                            <th>비고</th>
+                            <th>상태</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="number"></td>
+                            <td>템플릿 1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><a target="_blank" href="./html/temp01.html">./html/temp01.html</a></td>
+                            <td></td>
+                            <td class="status"><span>완료</span></td>
+                        </tr>
+                        <tr>
+                            <td class="number"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><a target="_blank" href="#">#</a></td>
+                            <td></td>
+                            <td class="status"><span>대기</span></td>
+                        </tr>
+                        </tr>
+                        <tr>
+                            <td class="number"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><a target="_blank" href="#">#</a></td>
+                            <td></td>
+                            <td class="status"><span>대기</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <script>
+            //status
+            const status = document.querySelectorAll(".status > span");
+            Array.from(status).forEach((badge) => {
+                if (badge.innerText === "완료") {
+                    badge.classList.add("complete");
+                } else if (badge.innerText === "진행") {
+                    badge.classList.add("ongoing");
+                } else if (badge.innerText === "대기") {
+                    badge.classList.add("waiting");
+                } else if (badge.innerText === "생략") {
+                    badge.parentElement.parentElement.classList.add("skip");
+                } else if (badge.innerText === "삭제") {
+                    badge.parentElement.parentElement.classList.add("del");
+                }
+            });
+
+            // //tr 넘버링
+            const rows = document.querySelectorAll("tr");
+            const numTd = Array.from(document.querySelectorAll(".number"));
+            for (var i = 0; i < Array.from(rows).length - 1; i++) {
+                numTd[i].innerHTML = i;
+            }
+            // tab menu
+            const tabItems = document.querySelectorAll(".tab-item");
+            const tabContents = document.querySelectorAll(".tab-content");
+
+            function tabHandler(item) {
+                const target = item.currentTarget;
+                const tabNum = target.getAttribute("data-tab");
+
+                Array.from(tabItems).forEach((i) => {
+                    i.classList.remove("active");
+                });
+                Array.from(tabContents).forEach((cont) => {
+                    cont.classList.remove("active");
+                });
+                let targetContent = document.querySelector("#" + tabNum);
+                targetContent.classList.add("active");
+                target.classList.add("active");
+            }
+
+            Array.from(tabItems).forEach((item) => {
+                item.addEventListener("click", tabHandler);
+            });
+        </script>
+    </body>
+</html>
