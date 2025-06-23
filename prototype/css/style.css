@@ -1,0 +1,123 @@
+/* 기본 스타일 */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background: linear-gradient(to right, #ff7e5f, #feb47b); /* 석양 그라데이션 */
+    color: #4a4a4a; /* 글자색 변경 */
+}
+
+#app {
+    width: 100%;
+    max-width: 500px;
+    background: #fff3e0; /* 밝은 오렌지 계열 */
+    padding: 2rem;
+    padding-top: calc(2rem + 44px); /* 앱바 높이(약 44px)만큼 패딩 조정 */
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    margin: 0 auto; /* 중앙 정렬 */
+}
+
+h1 {
+    text-align: center;
+    color: #8c3817; /* 진한 석양색 */
+}
+
+.app-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* 뷰포트 너비 전체를 차지하도록 */
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* 양 끝 정렬 */
+    padding: 10px 20px;
+    background-color: #f78c6b;
+    border-bottom: 1px solid #e56a4b;
+    border-radius: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.app-bar h1 {
+    margin: 0;
+    flex-grow: 1; /* 남은 공간을 채우도록 유지 */
+    text-align: center;
+    color: white;
+}
+
+.menu-btn {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+    width: 60px; /* 고정 너비 설정 */
+    height: 44px; /* 앱 바 높이에 맞춰 고정 높이 설정 */
+    display: flex; /* flex 컨테이너로 만들어 내부 아이콘 중앙 정렬 */
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.app-bar-right-placeholder {
+    width: 60px; /* 메뉴 버튼과 동일한 너비로 설정 */
+    height: 44px; /* 메뉴 버튼과 동일한 높이로 설정 */
+    visibility: hidden;
+}
+
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+    border: 1px solid #ffcc80; /* 부드러운 오렌지 테두리 */
+    border-radius: 4px;
+    box-sizing: border-box; /* padding이 너비에 포함되도록 설정 */
+    margin-bottom: 10px;
+    resize: vertical;
+    color: #333;
+}
+
+button {
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    background-color: #f78c6b; /* 석양 주황색 */
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #e56a4b; /* 어두운 석양 주황색 */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+li {
+    background: #fff8e1; /* 아주 밝은 노랑 */
+    padding: 15px;
+    border-bottom: 1px solid #ffe0b2; /* 부드러운 경계선 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li:first-child {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+li:last-child {
+    border-bottom: none;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+} 
